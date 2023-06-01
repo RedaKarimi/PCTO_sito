@@ -1,0 +1,462 @@
+
+@media (min-width: 800px) and (max-width: 1920px) {
+    body{
+      font-family: Poppins, sans-serif;
+      margin: 0;
+      overflow-x: hidden;
+    }
+    
+    .logo{
+      padding: 1.75% 0 1.75% 0;
+      display: flex;
+      justify-content: center;
+  
+    }
+
+    .container{
+      position: relative;
+      width: 960px;
+    }
+
+    .immagine{
+      background-image: url("./img/ball.jpg");
+      width: 1920px;
+      height: 950px;
+      background-attachment: fixed;
+      position: relative;
+      display: block;
+    }
+
+    .overlay{
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 950px;
+      width: 1920px;
+      opacity: 0;
+      transition: .5s ease;
+      background-color: black;
+    }
+
+    .container:hover .overlay{
+      opacity: .8;
+      cursor: pointer;
+    }
+
+    .text{
+      font-family: Poppins, sans-serif;
+      font-size: 25px;
+      letter-spacing: 1px;
+      color: white;
+      font-size: 20px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+      text-align: center;
+    }
+
+    .buttonDjokovic{
+      cursor: pointer;
+      border-radius: 50px;
+      padding: 2% 3%;
+      border: none;
+      background-color: white;
+      color: black;
+      font-family: Poppins, sans-serif;
+      letter-spacing: 1px;
+      transition: all .4s ease-in-out;
+      font-weight: 200;
+      opacity: 1;
+    }
+
+    .buttonDjokovic:hover{
+      background-color: #b35839;
+      color: white;
+      opacity: 1;
+    }
+
+    .banner-text{
+      position: absolute;
+      color: white;
+      padding: 10px;
+      font-size: 15px;
+      top: 15%;
+    }
+  
+    .menu-wrapper {
+      margin-top: -20px;
+      height: auto;
+      opacity: 1;
+    }
+
+    .navigationBar{
+      position: fixed; 
+    }
+  
+    .elements{
+      display: flex;
+      justify-content: center;
+      position: relative;
+      padding: .5% 0 1% 0;
+    }
+  
+    .insertFromRight{
+      border-radius: 50px;
+      padding: 3% 5%;
+      margin-bottom: 12.5%;
+      animation: slideInRight .5s;
+    }
+    .insertFromLeft{
+      border-radius: 50px;
+      padding: 3% 5%;
+      margin-bottom: 12.5%;
+      animation: slideOutLeft .5s;
+    }
+  
+    .contenitore{
+      display: flex;
+      justify-content: center;
+      text-align: center;
+      font-family: Poppins, sans-serif;
+      margin-top: 9%;
+      margin-bottom: 7%;
+    }
+  
+    .contenitore a{
+      text-decoration: none;
+      padding: 0 4.25% 0 4.25%;
+      color: black;
+      transition: 0.45s;
+    }
+  
+    .image1{
+      width: 400px;
+      height: 400px;
+      border-radius: 50%;
+      transition:all 0.5s ease-in-out;
+    }
+  
+    .image2{
+        width: 400px;
+        height: 400px;
+        border-radius: 50%;
+        transition:all 0.5s ease-in-out;
+    }
+  
+    .image1:hover{
+      transform:scale(1.1);
+      filter:brightness(0.8);
+  }
+  
+    .image2:hover{
+        transform:scale(1.1);
+        filter:brightness(0.8);
+    }
+  
+    .orangeDivider{
+      padding: 5% 0 7% 3%;
+      background-color: #D17043;
+    }
+  
+    .carousel{
+      font-family: Poppins, sans-serif;
+      font-size: 25px;
+      margin-top: 7.5%;
+    }
+  
+    h2{
+      color: white;
+      font-family: Poppins, sans-serif;
+      font-size: 75px;
+      letter-spacing: 1px;
+      font-weight:bolder;
+    }
+
+    .polo{
+      padding: 7% 0 9% 5%;
+    }
+
+    .titoloH2{
+      color: black;
+      align-items: right;
+      text-align: right;
+      padding: 0 5% 0 0;
+    }
+  
+    .title{
+      color: white;
+      text-align: left;
+      padding: 5% 5% 3.5% 5%;
+      padding-top: auto;
+      padding-bottom: auto;
+      font-family: Poppins, sans-serif;
+      letter-spacing: 1px;
+      font-size: 25px;
+      justify-content: center;
+      align-items: center;
+    }
+  
+    .sideText{
+      text-align: left;
+      padding: 0 5% 0 5%;
+      color: white;
+      font-family: Poppins, sans-serif;
+      letter-spacing: 1px;
+      font-size: 20px;
+    }
+
+    .bottoneStoria{
+      cursor: pointer;
+      border-radius: 50px;
+      padding: 2% 3%;
+      margin-left: 5%;
+      margin-top: 2.5%;
+      border: none;
+      background-color: white;
+      color: black;
+      font-family: Poppins, sans-serif;
+      letter-spacing: 1px;
+      transition: all .4s ease-in-out;
+      font-weight: 200;
+    }
+
+    .bottoneStoria:hover{
+      background-color: black;
+      color: white;
+    }
+
+    .bottonePolo{
+      cursor: pointer;
+      border-radius: 50px;
+      padding: 1% 1.5%;
+      background-color: black;
+      color: white;
+      border: none;
+      font-family: Poppins, sans-serif;
+      letter-spacing: 1px;
+      transition: all .4s ease-in-out;
+      font-weight: 200;
+    }
+
+    .bottonePolo:hover{
+      background-color: #13603C;
+      color: white;
+    }
+
+    .sideElements{
+      align-items: center;
+      justify-content: center;
+    }
+  
+    .imgAndText{
+      display: flex;
+    }
+
+    .leftTitle{
+      color: black;
+      text-align: left;
+      padding: 2.5% 0 1.5% 0;
+      font-family: Poppins, sans-serif;
+      letter-spacing: 1px;
+      font-size: 25px;
+      justify-content: center;
+      align-items: left;
+      font-weight: bold;
+    }
+
+    .leftText{
+      text-align: left;
+      color: black;
+      font-family: Poppins, sans-serif;
+      letter-spacing: 1px;
+      font-size: 20px;
+    }
+  
+    .caroselloImmagini{
+      display: flex;
+      justify-content: center;
+      text-align: center;
+      font-family: Poppins, sans-serif;
+      margin-top: 12.5%;
+    }
+  
+    .clothing{
+      font-family: Poppins, sans-serif;
+      font-size: 15px;
+      margin-top: 7.5%;
+      display: inline-block;
+      position: relative;
+      color: black;
+    }
+  
+    .clothing::after{
+      content: '';
+      position: absolute;
+      width: 100%;
+      transform: scaleX(0);
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background-color:  #13603C;
+      transform-origin: bottom right;
+      transition: transform 0.25s ease-out;
+    }
+  
+    .clothing:hover::after{
+      transform: scaleX(1);
+      transform-origin: bottom left;
+    }
+  
+    .caroselloImmagini a{
+      text-decoration: none;
+      padding: 0 2.25% 0 2.25%;
+      color: black;
+      transition: 0.45s;
+    }
+  
+    .footer{
+      background-color: #13603C;
+      padding: 5% 0  15% 0;
+      margin-top: 5%;
+    }
+  
+    .footer, .social{
+      text-align: center;
+    }
+  
+    .footer li:hover{
+        color: #b35839;
+        cursor: pointer;
+    }
+    .footer table{
+      font-family: Poppins, sans-serif;
+      letter-spacing: 1px;
+      font-weight:100;
+      margin-top: 5.75%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  
+    .footer table td{
+      font-size: 17px;
+      width: .5%;
+      align-items: center;
+      text-align: center; 
+    }
+  
+    .footer table thead{
+      font-size: 25px;
+      transition: all 0.4s ease-in-out;
+      color: white;
+      height: 5%;
+      margin-bottom: 17%;
+    }
+  
+    .footer table tbody{
+      color: white;
+    }
+  
+    .cellaMail{
+      margin-top: 25%;
+    }
+    
+    .icone{
+      color: white;
+      padding: 2% 1.25% 0 1.25%;
+      font-size: 30px;
+      transition: all 0.4s ease-in-out;
+    }
+    
+    .icone:hover {
+      cursor: pointer;
+      color: #b35839;
+    }
+  
+    .inserimentoDati{
+      border-radius: 50px;
+      font-family: Poppins, sans-serif;
+      align-items: center;
+      text-decoration: none;
+      padding: 1.5% 5.5%;
+      transition:0.45s;
+      border: #005226;
+      margin-left: 4%;
+      margin-top: 5%;
+      background-color: #b35839;
+      color: white;
+    }
+  
+    .inserimentoDati:hover{
+      cursor: pointer;
+      transition: all 0.4s ease-in-out;
+      background-color: white;
+      color: black;
+    }
+  
+    .inserimentoMail{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  
+    .celleUguali{
+      font-size: 17px;
+      padding: 1.5%;
+      position: relative;
+    }
+  
+    .footer table a{
+      color: white;
+      text-decoration: none;
+      transition: all 0.4s ease-in-out;
+    }
+  
+    .footer table a:hover{
+      color: #b35839;
+    }
+  
+    /*  .caroselloImmagini{
+      display: flex;
+      justify-content: center;
+      text-align: center;
+      font-family: Poppins, sans-serif;
+      margin-top: 12.5%;
+    }
+  
+    .clothing{
+      font-family: Poppins, sans-serif;
+      font-size: 15px;
+      margin-top: 7.5%;
+      display: inline-block;
+      position: relative;
+      color: black;
+    }
+  
+    .clothing::after{
+      content: '';
+      position: absolute;
+      width: 100%;
+      transform: scaleX(0);
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background-color:  black;
+      transform-origin: bottom right;
+      transition: transform 0.25s ease-out;
+    }
+  
+    .clothing:hover::after{
+      transform: scaleX(1);
+      transform-origin: bottom left;
+    }
+  */
+  }
+  
+  @media (min-width:360px) and (max-width: 800px){
+  
+  }

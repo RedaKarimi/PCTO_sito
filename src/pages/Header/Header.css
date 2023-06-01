@@ -1,0 +1,72 @@
+.fade-enter {
+    max-width: 0;
+    animation-duration: 1s;
+    animation-fill-mode: both;
+    animation-timing-function: ease-in-out ;
+    animation-play-state: paused;
+  }
+  
+  .fade-appear {
+    max-width: 0;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-play-state: paused;
+  }
+  
+  .fade-leave {
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-play-state: paused;
+  }
+  
+  .fade-enter.fade-enter-active {
+    animation-name: fadeIn;
+    animation-play-state: running;
+  }
+  
+  .fade-appear.fade-appear-active {
+    animation-name: fadeIn;
+    animation-play-state: running;
+  }
+  
+  .fade-leave.fade-leave-active {
+    animation-name: fadeOut;
+    animation-play-state: running;
+  }
+  
+  @keyframes fadeIn   {
+    0% {
+        max-width: 0;
+    }
+    100% {
+        max-width: 150;
+    }
+  }
+  
+  @keyframes fadeOut {
+    0% {
+        max-width: 150;
+    }
+    100% {
+        max-width: 0;
+    }
+  }
+
+  .header {
+    display: flex;
+    height: 105px;
+    margin: -10px;
+    color: white;
+    background-color: white;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 10px;
+    right: 0;
+    z-index: 1000;
+    width: 100%;
+  }
+  
+  .logo {
+  }
+  
