@@ -68,6 +68,7 @@ function HeaderComp() {
           <Animate
           transitionEnter={true}
           transitionLeave={true}
+          transitionAppear={true}
           transitionName="fade"
         >
             { isOnSearch ?

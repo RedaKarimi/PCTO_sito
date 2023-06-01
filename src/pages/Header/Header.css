@@ -23,13 +23,8 @@
     animation-name: fadeIn;
     animation-play-state: running;
   }
-  
-  .fade-appear.fade-appear-active {
-    animation-name: fadeIn;
-    animation-play-state: running;
-  }
-  
   .fade-leave.fade-leave-active {
+    background-color: black;
     animation-name: fadeOut;
     animation-play-state: running;
   }
