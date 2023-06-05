@@ -75,9 +75,10 @@ hr{
 }
 
 
-.testArticolo{
-  transition: all 1s;
+.articoli .ant-col{
+  transition: box-shadow 1s;
+  padding-bottom: 20px;
 }
-.testArticolo:hover{
-  background-color: red;
+.articoli .ant-col:hover{
+  box-shadow: 0 0 11px rgba(33,33,33,.2); 
 }
