@@ -5,9 +5,13 @@ import {
   Route,
 } from "react-router-dom";
 import Header from "./pages/Header/Header"
+import Footer from "./pages/Footer/Footer"
 import Home from "./pages/Home/Home.js";
 import Mail from "./pages/Mail/Mail.js";
-import Apps from "./pages/Apps/Apps.js";
+import Men from "./pages/Men-shop/Men-shop.js";
+import Women from "./pages/Women-shop/Women-shop.js";
+import Children from "./pages/Shops/Kids/Kids.js";
+import LXR_G from "./pages/Shops/Lacoste-RG/Lacoste-RG.js";
 import Store from "./pages/Store/Store.js";
 function App() {
   return (
@@ -16,9 +20,13 @@ function App() {
         <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/mail" element={<Mail />} />
-            <Route path="/app" element={<Apps />} />
+            <Route path="/men" element={<Men />} />
+            <Route path="/women" element={<Women />} />
+            <Route path="/children" element={<Children />} />
+            <Route path="/LXR_G" element={<LXR_G />} />
             <Route path="/store" element={<Store />} />
         </Routes>
+        <Footer/>
       </Router>
   );
 }
