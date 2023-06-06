@@ -1,0 +1,50 @@
+/* Account.css */
+.login-container {
+  
+
+  width: 50%;
+  height: 850px;
+}
+
+.login-form-container {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  height: 40%;
+  background-color: white;
+}
+.login-form {
+  padding: 20px;
+}
+
+.login-form input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.login-form button {
+  font-family: Poppins, sans-serif;
+  letter-spacing: 1px;
+  font-size: 15px;
+  width: 100%;
+  justify-content: center;
+  background-color: #13603C;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 3% 10%;
+  border-radius: 50px;
+  transition: .4s all ease-in-out;
+}
+
+.login-form button:hover {
+  text-decoration: none;
+  background-color: black;
+}
+
+.container{}

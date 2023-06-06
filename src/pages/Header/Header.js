@@ -3,6 +3,7 @@ import './Header.css';
 import { Button, Tooltip, Input, Layout, Menu, ConfigProvider } from "antd";
 import { TagOutlined, HomeOutlined, UserAddOutlined, SearchOutlined, ShoppingCartOutlined, DownOutlined } from "@ant-design/icons";
 import TweenOne from 'rc-tween-one';
+import Cock from "./Cockodrillo.svg"
 import React, { useState } from "react";
 const { Header } = Layout;
 var TweenOneGroup = TweenOne.TweenOneGroup;
@@ -48,18 +49,18 @@ function HeaderComp() {
 
   return (
     <Header className="header">
-      <img src={require("./logoMigliore.png")} alt="test" width="6%" />
+      <img src={Cock} alt="logo" width="6%" />
       <img src={require("./scrittaLacoste.png")} alt="logo" width="6%" />
       <Menu
         className="menuStyle"
         style={{ width: "100%", margin: 0, padding: 20, height: 0, display: "flex", justifyContent: "flex-end", alignItems: "center", }}
         disabledOverflow={true} mode="horizontal" breakpoint="lg" collapsedWidth="0" defaultSelectedKeys={"home"} >
 
-        <Menu.Item  key="mail" >
-            {location.pathname === "/mail" ?
+        <Menu.Item  key="account" >
+            {location.pathname === "/account" ?
               <Button size="large" type="text" shape="circle" onClick={() => { navigate('/'); }} icon={<HomeOutlined style={{ fontSize: "23px", color: "#13603C" }} />} />
               :
-              <Button size="large" type="text" shape="circle" onClick={() => { navigate('/mail'); }} icon={<UserAddOutlined style={{ fontSize: "23px", color: "black" }} />} />
+              <Button size="large" type="text" shape="circle" onClick={() => { navigate('/account'); }} icon={<UserAddOutlined style={{ fontSize: "23px", color: "black" }} />} />
             }
         </Menu.Item>
 

@@ -1,16 +1,36 @@
 import { useNavigate, useLocation } from "react-router-dom";
 import { Col, Row, Layout, Card, Button, Divider } from "antd";
 import { DownOutlined } from "@ant-design/icons";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import Axios from 'axios'
 import "./men-style.css"
 
 const { Meta } = Card
 const { Content, Footer } = Layout;
 function MenShop() {
+    const [data, setData] = useState([]);
+    useEffect(() => {
+        Axios.get('http://192.168.250.52:7777/api/data')
+            .then(response => {
+                console.log(response.data);
+                setData(response.data);
+            })
+            .catch(error => {
+                console.error('Error fetching data:', error);
+            });
+    }, []);
+
+    const items=()=>{
+        let item=[]
+        data.forEach(element => {
+            console.log(element.VA_PREZZO_VEN)
+        });
+    }
+
     return (
         <Layout style={{ marginTop: 100 }}>
             <Content style={{ display: "flex", justifyContent: "center" }} class="elementi">
-                <section class="articoli">
+                {/* <section class="articoli">
                     <p class="titolo">Upper Body by Lacoste</p>
                     <Row align="top" justify="center" gutter={[4, 8]}>
                         <Col span={5}>
@@ -65,7 +85,7 @@ function MenShop() {
                         </Col>
                     </Row>
                 <hr></hr>
-                <p class="titolo2">Lower Body, High quality</p>
+                <p class="titolo2">Lower Body, Higher quality</p>
                     <Row align="top" justify="center" gutter={[4, 8]}>
                         <Col span={5}>
                             <img
@@ -118,7 +138,13 @@ function MenShop() {
                             </div>
                         </Col>
                     </Row>
-            </section>
+            </section> */}
+                {data.map(item => (
+                    <div style={{ marginBottom: '10px' }}>
+                        <p style={{ clear: 'both' }}>{item.VA_PREZZO_VEN}</p>
+                    </div>
+                ))}
+                {items}
             </Content>
             <Footer>
             </Footer>

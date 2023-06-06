@@ -31,7 +31,7 @@
       bottom: 0;
       left: 0;
       right: 0;
-      height: 1000px;
+      height: 900px;
       width: 1920px;
       opacity: 0;
       transition: .5s ease;
@@ -359,7 +359,7 @@
       color: white;
     }
   
-    .cellaMail{
+    .cellaaccount{
       margin-top: 25%;
     }
     
@@ -396,7 +396,7 @@
       color: black;
     }
   
-    .inserimentoMail{
+    .inserimentoaccount{
       display: flex;
       justify-content: center;
       align-items: center;

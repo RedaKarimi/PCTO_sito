@@ -18,7 +18,7 @@ function Home() {
             </video>
               <div class="overlay">
                 <div class="text">Lacoste X Roland Garros 2023<br /><br />
-                  <button class="buttonDjokovic">VAI ALLA COLLEZIONE</button>
+                  <button class="buttonDjokovic" onClick="../Shops/Lacoste-RG/Lacoste-RG.js">VAI ALLA COLLEZIONE</button>
                   <br /><br /><img src={require("./img/rglogo.png")} class="crocBanner" style={{ width: "10%" }} />
                 </div>
               </div>

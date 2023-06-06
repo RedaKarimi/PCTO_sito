@@ -67,7 +67,7 @@ function womenShop() {
                         </Col>
                     </Row>
                     <hr></hr>
-                    <p class="titolo2">Lower Body, High quality</p>
+                    <p class="titolo2">Lower Body, Higher quality</p>
                     <Row align="top" justify="center" gutter={[4, 8]}>
                         <Col span={5}>
                             <img
