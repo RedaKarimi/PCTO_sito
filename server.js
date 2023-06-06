@@ -20,7 +20,7 @@ app.get('/api/data', async (req, res) => {
     try {
       await sql.connect(config);
       const result = await sql.query('SELECT TOP(10) VA_PREZZO_VEN FROM dbo.Articoli;');
-      console.log(result);
+      console.log("result");
       res.json(result.recordset);
     } catch (err) {
       console.error('Error fetching data:', err);

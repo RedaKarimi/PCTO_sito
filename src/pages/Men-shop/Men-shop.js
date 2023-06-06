@@ -12,7 +12,6 @@ function MenShop() {
     useEffect(() => {
         Axios.get('http://192.168.250.52:7777/api/data')
             .then(response => {
-                console.log(response.data);
                 setData(response.data);
             })
             .catch(error => {
@@ -22,9 +21,10 @@ function MenShop() {
 
     const items=()=>{
         let item=[]
-        data.forEach(element => {
-            console.log(element.VA_PREZZO_VEN)
-        });
+        for(let i=0;i<data.length;i++)
+        {
+            console.log(i)
+        }
     }
 
     return (
@@ -139,12 +139,7 @@ function MenShop() {
                         </Col>
                     </Row>
             </section> */}
-                {data.map(item => (
-                    <div style={{ marginBottom: '10px' }}>
-                        <p style={{ clear: 'both' }}>{item.VA_PREZZO_VEN}</p>
-                    </div>
-                ))}
-                {items}
+            {items()}
             </Content>
             <Footer>
             </Footer>
