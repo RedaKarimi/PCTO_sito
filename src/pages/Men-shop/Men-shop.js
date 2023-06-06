@@ -21,15 +21,33 @@ function MenShop() {
 
     const items=()=>{
         let item=[]
-        for(let i=0;i<data.length;i++)
-        {
-            console.log(i)
-        }
+        data.forEach(element => {
+            item.push(
+                 <Col span={5}>
+                    <img
+                        src={require("./men-img/poloOriginale.jpg")}
+                        style={{ width: "100%", padding: "5%" }}
+                    />
+                    <Meta title={`${element.TI_DES}`} description={`€${element.VA_PREZZO_VEN}`} className="textShop" />
+    
+                    <div class="buttonContainer">
+                        <button class="bottoneCarrello" style={{ marginTop: "2.5%" }}>Aggiungi al carrello</button>
+                    </div>
+                </Col>
+            )
+        });
+        return item
     }
 
     return (
         <Layout style={{ marginTop: 100 }}>
             <Content style={{ display: "flex", justifyContent: "center" }} class="elementi">
+            <section class="articoli">
+                    <p class="titolo">Upper Body by Lacoste</p>
+                    <Row align="top" justify="center" gutter={[4, 8]}>
+                        {items()}
+                    </Row>
+                    </section>
                 {/* <section class="articoli">
                     <p class="titolo">Upper Body by Lacoste</p>
                     <Row align="top" justify="center" gutter={[4, 8]}>
@@ -139,7 +157,6 @@ function MenShop() {
                         </Col>
                     </Row>
             </section> */}
-            {items()}
             </Content>
             <Footer>
             </Footer>
