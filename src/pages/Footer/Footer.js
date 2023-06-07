@@ -41,7 +41,7 @@ function FooterComp() {
 
         <table>
           <thead>
-            <tr><th>Riguardo Lacoste</th><th>Categorie</th><th>Aiuto e Contatti</th><th>Unisciti al club Lacoste</th></tr>
+            <tr><th>Riguardo Lacoste</th><th>Categorie</th><th>Aiuto e Contatti</th><th>Unisciti alla nostra newsletter</th></tr>
           </thead>
           <tbody>
             <tr><td><a href="https://www.lacoste.com/it/leclublacoste.html#">Le club Lacoste</a></td><td><a href="https://www.lacoste.com/it/uomo.html">Collezione Uomo</a></td><td><a href="https://www.lacoste.com/it/FAQ.html?category=C05&question=">FAQ</a></td><td>

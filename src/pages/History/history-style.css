@@ -1,0 +1,10 @@
+.container_history{
+    position: relative;
+    width: 960px;
+}
+.video_history{
+      width: 1920px;
+      height: 1000px;
+      position: relative;
+      display: block;
+    }

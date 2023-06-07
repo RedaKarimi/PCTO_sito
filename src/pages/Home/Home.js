@@ -1,6 +1,7 @@
 import "./home.css";
 import { Layout } from "antd";
 import { OverPack } from 'rc-scroll-anim';
+import { useNavigate, useLocation } from "react-router-dom";
 import TweenOne from 'rc-tween-one';
 import QueueAnim from 'rc-queue-anim';
 
@@ -8,6 +9,8 @@ import React from "react";
 const { Content } = Layout;
 
 function Home() {
+  let navigate = useNavigate();
+
   return (
     <Layout className="elements">
       <Content className="content">
@@ -18,7 +21,7 @@ function Home() {
             </video>
               <div class="overlay">
                 <div class="text">Lacoste X Roland Garros 2023<br /><br />
-                  <button class="buttonDjokovic" onClick="../Shops/Lacoste-RG/Lacoste-RG.js">VAI ALLA COLLEZIONE</button>
+                  <button class="buttonDjokovic" onClick={() => { navigate('/LXR_G'); window.scrollTo({top: 0, left: 0, behavior: 'smooth'}); }}>VAI ALLA COLLEZIONE</button>
                   <br /><br /><img src={require("./img/rglogo.png")} class="crocBanner" style={{ width: "10%" }} />
                 </div>
               </div>
@@ -41,7 +44,7 @@ function Home() {
                   <br />
                   <p class="sideText">Il coccodrillo, simbolo della casa francese, viene applicato a caldo sugli indumenti. Il classico logo è rimasto immutato negli anni, tranne l'aver subito una leggera riduzione di dimensioni negli ultimi decenni.
                   </p>
-                  <button class="bottoneStoria">Scopri di piu'</button>
+                  <button class="bottoneStoria" onClick={() => { navigate('/history'); window.scrollTo({top: 0, left: 0, behavior: 'smooth'});}}>Scopri di piu'</button>
                 </div>
               </div>
             </QueueAnim>

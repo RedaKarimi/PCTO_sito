@@ -17,40 +17,40 @@ function HeaderComp() {
   const [current, setCurrent] = useState('cat1');
 
   let submenu_items = new Map([
-    [0, location.pathname === "/men" ?
-      (<Menu.Item onClick={() => { navigate('/'); }} key="home" style={{ color: "#13603C", left: "auto", right: 0 }}>
+    [0, location.pathname === "/men" ?  
+      (<Menu.Item onClick={() => { navigate('/'); window.scrollTo({top: 0, left: 0, behavior: 'smooth'});}} key="home" style={{ color: "#13603C", left: "auto", right: 0 }}>
         Home
       </Menu.Item>) : 
-      (<Menu.Item onClick={() => { navigate('/men'); }} key="cat1" style={{ left: "auto", right: 0 }}>
+      (<Menu.Item onClick={() => { navigate('/men'); window.scrollTo({top: 0, left: 0, behavior: 'smooth'});}} key="cat1" style={{ left: "auto", right: 0 }}>
         Uomo
       </Menu.Item>)
     ],
     [1, location.pathname === "/women" ?
-      (<Menu.Item onClick={() => { navigate('/'); }} key="home" style={{ color: "#13603C", left: "auto", right: 0 }}>
+      (<Menu.Item onClick={() => { navigate('/'); window.scrollTo({top: 0, left: 0, behavior: 'smooth'});}} key="home" style={{ color: "#13603C", left: "auto", right: 0 }}>
         Home
       </Menu.Item>)
-      : (<Menu.Item onClick={() => { navigate('/women'); }} key="cat2" >
+      : (<Menu.Item onClick={() => { navigate('/women'); window.scrollTo({top: 0, left: 0, behavior: 'smooth'});}} key="cat2" >
          Donna
       </Menu.Item>)
     ],
     [2, location.pathname === "/children" ?
-      (<Menu.Item onClick={() => { navigate('/'); }} key="home" style={{ color: "#13603C", left: "auto", right: 0 }}>
+      (<Menu.Item onClick={() => { navigate('/'); window.scrollTo({top: 0, left: 0, behavior: 'smooth'});}} key="home" style={{ color: "#13603C", left: "auto", right: 0 }}>
         Home
-      </Menu.Item>) : (<Menu.Item onClick={() => { navigate('/children'); }} key="cat3" >
+      </Menu.Item>) : (<Menu.Item onClick={() => { navigate('/children'); window.scrollTo({top: 0, left: 0, behavior: 'smooth'});}} key="cat3" >
         Bambino
       </Menu.Item>)],
-    [3, location.pathname === "/LXR_G" ? (<Menu.Item onClick={() => { navigate('/'); }} key="home" style={{ color: "#13603C", left: "auto", right: 0 }}>
+    [3, location.pathname === "/LXR_G" ? (<Menu.Item onClick={() => { navigate('/'); window.scrollTo({top: 0, left: 0, behavior: 'smooth'});}} key="home" style={{ color: "#13603C", left: "auto", right: 0 }}>
       Home
       </Menu.Item>) :
-      (<Menu.Item onClick={() => { navigate('/LXR_G'); }} key="cat4" >
+      (<Menu.Item onClick={() => { navigate('/LXR_G'); window.scrollTo({top: 0, left: 0, behavior: 'smooth'});}} key="cat4" >
         Lacoste X Roland Garros
       </Menu.Item>)]
   ])
 
   return (
     <Header className="header">
-      <img src={Cock} alt="logo" width="6%" />
-      <img src={require("./scrittaLacoste.png")} alt="logo" width="6%" />
+      <img src={Cock} alt="logo" width="6%" onClick={() => { navigate('/'); window.scrollTo({top: 0, left: 0, behavior: 'smooth'});}} style={{cursor:"pointer"}}/>
+      <img src={require("./scrittaLacoste.png")} alt="logo" width="6%" onClick={() => { navigate('/'); window.scrollTo({top: 0, left: 0, behavior: 'smooth'});}} style={{cursor:"pointer"}}/>
       <Menu
         className="menuStyle"
         style={{ width: "100%", margin: 0, padding: 20, height: 0, display: "flex", justifyContent: "flex-end", alignItems: "center", }}
@@ -58,9 +58,9 @@ function HeaderComp() {
 
         <Menu.Item  key="account" >
             {location.pathname === "/account" ?
-              <Button size="large" type="text" shape="circle" onClick={() => { navigate('/'); }} icon={<HomeOutlined style={{ fontSize: "23px", color: "#13603C" }} />} />
+              <Button size="large" type="text" shape="circle" onClick={() => { navigate('/'); window.scrollTo({top: 0, left: 0, behavior: 'smooth'});}} icon={<HomeOutlined style={{ fontSize: "23px", color: "#13603C" }} />} />
               :
-              <Button size="large" type="text" shape="circle" onClick={() => { navigate('/account'); }} icon={<UserAddOutlined style={{ fontSize: "23px", color: "black" }} />} />
+              <Button size="large" type="text" shape="circle" onClick={() => { navigate('/account'); window.scrollTo({top: 0, left: 0, behavior: 'smooth'});}} icon={<UserAddOutlined style={{ fontSize: "23px", color: "black" }} />} />
             }
         </Menu.Item>
 
@@ -70,9 +70,9 @@ function HeaderComp() {
 
         <Menu.Item key="shop" >
           {location.pathname === "/store" ?
-            <Button size="large" type="text" shape="circle" onClick={() => { navigate('/'); }} icon={<HomeOutlined style={{ fontSize: "23px", color: "#13603C" }} />} />
+            <Button size="large" type="text" shape="circle" onClick={() => { navigate('/'); window.scrollTo({top: 0, left: 0, behavior: 'smooth'});}} icon={<HomeOutlined style={{ fontSize: "23px", color: "#13603C" }} />} />
             :
-            <Button size="large" type="text" shape="circle" onClick={() => { navigate('/store'); }} icon={<ShoppingCartOutlined  style={{ fontSize: "28px", color: "black " }} />} />
+            <Button size="large" type="text" shape="circle" onClick={() => { navigate('/store'); window.scrollTo({top: 0, left: 0, behavior: 'smooth'});}} icon={<ShoppingCartOutlined  style={{ fontSize: "28px", color: "black " }} />} />
           }
         </Menu.Item>
         <Menu.Item key="search">

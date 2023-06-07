@@ -13,6 +13,7 @@ import Women from "./pages/Women-shop/Women-shop.js";
 import Children from "./pages/Shops/Kids/Kids.js";
 import LXR_G from "./pages/Shops/Lacoste-RG/Lacoste-RG.js";
 import Store from "./pages/Store/Store.js";
+import History from "./pages/History/History.js"
 function App() {
   return (
     <Router>
@@ -25,6 +26,7 @@ function App() {
         <Route path="/children" element={<Children />} />
         <Route path="/LXR_G" element={<LXR_G />} />
         <Route path="/store" element={<Store />} />
+        <Route parth="/history" element={<Store />} />
       </Routes>
       <Footer />
     </Router>
