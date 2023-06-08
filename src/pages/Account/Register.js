@@ -6,7 +6,8 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { SHA3 } from 'sha3';
 import Axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate,createSearchParams } from 'react-router-dom';
+import Search from 'antd/es/transfer/search';
 
 const validateMessages = {
   types: {
@@ -43,8 +44,15 @@ const Register = ({ SendgetValue, SendError }) => {
       }
       ).then((response) => {
         console.log(response);
-        navigate('/verification',{state:{ email: email }});
+        navigate('/verification',{state:{email:email}})
+        toast.update(toastId.current, {
+          render: "Email sent. Please check your inbox and follow the verification instructions.",
+          autoClose: 2000,
+          type: "success",
+          isLoading: false
+        });
       }).catch((error) => {
+        console.log(error.response.status)
         if (error) {
           toast.update(toastId.current, {
             render: "Something went wrong",
@@ -53,8 +61,8 @@ const Register = ({ SendgetValue, SendError }) => {
             
             isLoading: false
           })
-        }
-        else if (error.response.status === 404) {
+        
+        if (error.response.status === 404) {
           toast.update(toastId.current, {
             render: "Server is not open",
             type: "error",
@@ -62,21 +70,31 @@ const Register = ({ SendgetValue, SendError }) => {
             isLoading: false
           })
         } 
+        
         else if (error.response.status === 409) {
-          toast.update("Account already taken", {
-            render: "Account already taken",
+          toast.update(toastId.current, {
+            render: "Username/Email already exists",
             type: "error",
             autoClose: 2000,
             isLoading: false
           })
-        } else {
-          toast.update("Registration Failed", {
+          
+        }  else if (error.response.status === 501) {
+          toast.update(toastId.current, {
+            render: "Error while sending the email",
+            type: "error",
+            autoClose: 2000,
+            isLoading: false
+          })
+        }  else {
+          toast.update(toastId.current, {
             render: "Registration Failed",
             type: "error",
             autoClose: 2000,
             isLoading: false
           })
         }
+      }
       });
     } else {
       console.error('Error: Unable to hash password.');

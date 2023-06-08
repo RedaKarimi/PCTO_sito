@@ -31,7 +31,7 @@ function History() {
                 </section>
 
                 <section class="rene_history">
-                    <p class="titolo_rene">LA STORIA DI UN MITO</p>
+                    <p class="titolo_rene">La storia di una leggenda</p>
                     <div class="allinea_rene">
                         <video autoPlay loop muted id="video" class="video_rene" >
                             <source src={require("./img-history/reneCroc.mp4")} type="video/mp4"></source>
@@ -41,7 +41,10 @@ function History() {
                 </section>
 
                 <section class="robertGeorge">
-            
+                    <p class="titoloCoccodrillo">Nasce un'icona</p>
+                    <div class="immagineETesto">
+                        <img src={require("./img-history/coccRobertGeorge.jpg")} class="immagineCoccodrillo"/>
+                    </div>
                 </section>
             </Content>
         </Layout>

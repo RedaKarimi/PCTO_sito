@@ -86,6 +86,26 @@ app.post('/register', async (req, res) => {
     const admin =
       username === `Reda Karimi` || username === `Luca Niccia` ? 1 : 0;
 
+      const checkQuery = `
+      SELECT COUNT(*) AS count
+      FROM Accounts
+      WHERE usr_email = @email OR usr_name=@username;
+    `;
+    const checkParameters = [
+      { name: 'username', type: sql.VarChar(100), value: username },
+      { name: 'email', type: sql.VarChar(100), value: email },
+    ];
+    const checkRequest = new sql.Request();
+    checkParameters.forEach((param) => {
+      checkRequest.input(param.name, param.type, param.value);
+    });
+    const checkResult = await checkRequest.query(checkQuery);
+    const accountExists = checkResult.recordset[0].count > 0;
+
+    if (accountExists) {
+      return res.sendStatus(409);
+    }
+
     // Generate verification code
     const verificationCode = generateVerificationCode();
 
@@ -169,7 +189,7 @@ app.post('/register', async (req, res) => {
       res.sendStatus(200);
     } catch (error) {
       console.error('Error sending email:', error);
-      res.status(500).send('Error sending email');
+      res.sendStatus(501);
     }
   } catch (err) {
     console.error('Error:', err);

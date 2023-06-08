@@ -86,3 +86,61 @@
 :where(.css-dev-only-do-not-override-k7429z).ant-input-affix-wrapper-status-success:not(.ant-input-affix-wrapper-disabled):not(.ant-input-affix-wrapper-borderless).ant-input-affix-wrapper .ant-input-prefix, :where(.css-dev-only-do-not-override-k7429z).ant-input-affix-wrapper-status-success:not(.ant-input-affix-wrapper-disabled):not(.ant-input-affix-wrapper-borderless).ant-input-affix-wrapper .ant-input-suffix {
     color: #21c700 !important;
 }
+
+.pezzoInserimentoEmail{
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  padding-top: 5%;
+
+}
+
+.received{
+  font-family: Poppins, sans-serif;
+  letter-spacing: 1px;
+  font-size: 15px;
+  border-color: grey;
+}
+
+.inserEmail{
+  border-radius: 20px;
+  padding: 5% 10%;
+  width: 150%;
+  right: 30%;
+}
+
+.submit{
+  margin: 0 0 0 2.5%;
+  border-radius: 50px;
+  border: none;
+  font-family: Poppins, sans-serif;
+  letter-spacing: 1px;
+  font-size: 12.5px;
+  padding: 2% 10%;
+  justify-content: center;
+  background-color: #13603C;
+  color: white;
+  transition: .5s ease-in-out;
+}
+
+.submit:hover{
+  background-color: #b35839;
+  cursor: pointer;
+}
+img > #path1 .svg-elem-2{
+  fill: #ff0000;
+}
+
+.insideVerification{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.descrizioneVerifica{
+  font-family: Poppins, sans-serif;
+  font-size: 15px;
+  letter-spacing: 1px;
+  color: black;
+}
