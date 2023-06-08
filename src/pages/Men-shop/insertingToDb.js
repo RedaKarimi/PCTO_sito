@@ -38,7 +38,7 @@ const Form = () => {
 
       console.log(formData);
 
-      Axios.post('http://192.168.250.52:7777/put/data', formData)
+      Axios.post('http://192.168.250.52:3000/put/data', formData)
         .then((response) => {
           console.log(response);
         })

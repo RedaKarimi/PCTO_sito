@@ -110,7 +110,7 @@ app.post('/register', async (req, res) => {
 
     await request.query(query);
 
-    sgMail.setApiKey('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');
+    sgMail.setApiKey('YOUR_SENDGRID_API_KEY');
 
     const msg = {
       to: email,

@@ -1,10 +1,133 @@
-.container_history{
-    position: relative;
-    width: 960px;
+.video_history {
+  width: 1920px;
+  height: 950px;
 }
-.video_history{
-      width: 1920px;
-      height: 1000px;
-      position: relative;
-      display: block;
-    }
+
+.container_history {
+  position: relative;
+  height: 950px;
+}
+
+.overlay_history {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 950px;
+  width: 1920px;
+  opacity: 0;
+  transition: .5s ease;
+  background-color: black;
+}
+
+.text{
+  color: white;
+  font-family: Poppins, sans-serif;
+  letter-spacing: 1px;
+  font-size: 45px;
+  font-weight: 600;
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  padding-top: 7.5%;
+}
+
+.icon{
+  transition:all 0.5s ease-in-out;
+}
+
+.icon:hover{
+  transform: translateY(50%);
+  filter:brightness(0.8);
+}
+
+.container_history:hover .overlay_history {
+  opacity: .8;
+  cursor: pointer;
+}
+
+.rene {
+  background-image: linear-gradient(
+    -45deg,
+    #ced4da 0%,
+    black 25%,
+    #000000 51%,
+    #ced4da 100%
+  );
+  -webkit-animation: AnimateBG 7.5s ease infinite;
+  animation: AnimateBG 7.5s ease infinite;
+  background-size: 200% 200%;
+  padding: 5% 0 5% 5%;
+}
+
+.elevator{
+  height: 1080px;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+.elevator{
+  background: linear-gradient(to right, #13603C 25%, #1d1515, #13603C 75%);
+  display: grid;
+  justify-items: center;
+  perspective: 700px;
+  perspective-origin: center center;
+}
+
+.box {
+  background: linear-gradient(to right, white 70%, #b9b0b0);
+  width: 100vw;
+  height: 300px;
+  transform-style: preserve-3d;
+  transform: translateX(-50%) rotateY(65deg);
+  transform-origin: right center;
+}
+
+.box2 {
+  background: linear-gradient(to left, white 70%, #b9b0b0);
+  transform: translateX(50%) rotateY(-65deg);
+  transform-origin: left center;
+}
+
+.rene_history {
+  height: 100%;
+  background-color: #191919;
+  padding: 5% 0 5% 5%;
+  color: white;
+  font-family: Poppins, sans-serif;
+  letter-spacing: 1px;
+}
+
+.titolo_rene{
+  font-size: 65px;
+  font-weight: 600;
+  padding-left: -15%;
+}
+
+.video_rene{
+  width: 50%;
+}
+
+.allinea_rene{
+  display: flex;
+}
+
+.descriptionRight{
+  font-size: 22.5px;
+  padding: 0 5% 0 2%;
+  text-align: left;
+  justify-content: center;
+  font-weight: 300;
+  align-items: center;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.robertGeorge{
+  
+}

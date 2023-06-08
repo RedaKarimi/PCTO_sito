@@ -22,7 +22,7 @@
   border: 1px solid #ccc;
   border-radius: 4px;
 }
-.login-form button {
+.login-form-button {
   font-family: Poppins, sans-serif;
   letter-spacing: 1px;
   font-size: 15px;
@@ -38,7 +38,7 @@
   transition: .4s all ease-in-out;
 }
 
-.login-form button:hover {
+.login-form-button:hover {
   text-decoration: none;
   background-color: black;
 }
@@ -78,4 +78,11 @@
   100% {
     background-position: 0% 50%;
   }
+}
+
+:where(.css-dev-only-do-not-override-k7429z).ant-input-affix-wrapper-status-success:not(.ant-input-affix-wrapper-disabled):not(.ant-input-affix-wrapper-borderless).ant-input-affix-wrapper {
+  border-color: #21c700 !important;
+}
+:where(.css-dev-only-do-not-override-k7429z).ant-input-affix-wrapper-status-success:not(.ant-input-affix-wrapper-disabled):not(.ant-input-affix-wrapper-borderless).ant-input-affix-wrapper .ant-input-prefix, :where(.css-dev-only-do-not-override-k7429z).ant-input-affix-wrapper-status-success:not(.ant-input-affix-wrapper-disabled):not(.ant-input-affix-wrapper-borderless).ant-input-affix-wrapper .ant-input-suffix {
+    color: #21c700 !important;
 }

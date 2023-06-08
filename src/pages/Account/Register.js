@@ -2,8 +2,11 @@ import React, { useRef, useState } from 'react';
 import './Account.css';
 import { LockOutlined, UserOutlined, MailOutlined } from '@ant-design/icons';
 import { Button, Checkbox, Form, Input } from 'antd';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { SHA3 } from 'sha3';
 import Axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const validateMessages = {
   types: {
@@ -13,25 +16,72 @@ const validateMessages = {
 
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 
-const Register = ({ SendgetValue }) => {
+const Register = ({ SendgetValue, SendError }) => {
   const [form] = Form.useForm();
+
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [conPassword, setConPassword] = useState('');
   const [hidden, setHidden] = useState(true);
   const [agreeTerms, setAgreeTerms] = useState(false);
-  const [error, setError] = useState(false);
+  const [errormsg, setError] = useState("");
+  const [fieldErrors, setFieldErrors] = useState({});
 
+  const toastId = useRef(null)
+
+  let navigate = useNavigate();
   const register = () => {
     const hashedPassword = hash_password(password);
+    toastId.current = toast.loading("Please wait...")
     if (hashedPassword) {
-      console.log('bravo');
+      Axios.post('http://192.168.250.52:3000/register', {
+        username: username,
+        email: email,
+        password: password,
+        hashedPassword: hashedPassword,
+      }
+      ).then((response) => {
+        console.log(response);
+        navigate('/verification',{state:{ email: email }});
+      }).catch((error) => {
+        if (error) {
+          toast.update(toastId.current, {
+            render: "Something went wrong",
+            type: "error",
+            autoClose: 2000,
+            
+            isLoading: false
+          })
+        }
+        else if (error.response.status === 404) {
+          toast.update(toastId.current, {
+            render: "Server is not open",
+            type: "error",
+            autoClose: 2000,
+            isLoading: false
+          })
+        } 
+        else if (error.response.status === 409) {
+          toast.update("Account already taken", {
+            render: "Account already taken",
+            type: "error",
+            autoClose: 2000,
+            isLoading: false
+          })
+        } else {
+          toast.update("Registration Failed", {
+            render: "Registration Failed",
+            type: "error",
+            autoClose: 2000,
+            isLoading: false
+          })
+        }
+      });
     } else {
       console.error('Error: Unable to hash password.');
     }
   };
-
   const hash_password = (password) => {
     try {
       const hash = new SHA3(512);
@@ -42,14 +92,11 @@ const Register = ({ SendgetValue }) => {
       return null;
     }
   };
-
   const changeState = () => {
     SendgetValue(true);
   };
-
   const beforeSubmit = async () => {
     try {
-      await form.validateFields();
       if (agreeTerms) {
         register();
       } else {
@@ -57,7 +104,6 @@ const Register = ({ SendgetValue }) => {
       }
     } catch (error) {
       console.error('Error: Form validation failed.');
-      setError(true);
     }
   };
 
@@ -71,9 +117,6 @@ const Register = ({ SendgetValue }) => {
       }}
       validateMessages={validateMessages}
       onFinish={beforeSubmit}
-      onFinishFailed={() => {
-        setError(true);
-      }}
     >
       <Form.Item
         name="username"
@@ -87,8 +130,6 @@ const Register = ({ SendgetValue }) => {
             message: 'Please input at least 4 characters',
           },
         ]}
-        validateStatus={username ? 'success' : error ? 'error' : ''}
-        help={!username && error ? 'Please input your Username!' : ''}
       >
         <Input
           onChange={(e) => {
@@ -96,11 +137,11 @@ const Register = ({ SendgetValue }) => {
           }}
           prefix={<UserOutlined className="site-form-item-icon" />}
           placeholder="Username"
+
         />
       </Form.Item>
-
       <Form.Item
-        name={['user', 'email']}
+        name={['email']}
         rules={[
           {
             type: 'email',
@@ -111,8 +152,6 @@ const Register = ({ SendgetValue }) => {
             message: 'Please input your Email!',
           },
         ]}
-        validateStatus={email ? 'success' : error ? 'error' : ''}
-        help={!email && error ? 'Please input your Email!' : ''}
       >
         <Input
           onChange={(e) => {
@@ -132,11 +171,10 @@ const Register = ({ SendgetValue }) => {
           },
           {
             pattern: PWD_REGEX,
-            message: 'A password contains at least eight characters, including at least one number and includes both lower and uppercase letters and special characters, for example #, ?, !.',
+            message:
+              'A password contains at least eight characters, including at least one number and includes both lower and uppercase letters and special characters, for example #, ?, !.',
           },
         ]}
-        validateStatus={password ? 'success' : error ? 'error' : ''}
-        help={!password && error ? 'Please input your Password!' : ''}
       >
         <Input.Password
           onClick={() => {
@@ -153,7 +191,7 @@ const Register = ({ SendgetValue }) => {
         />
       </Form.Item>
 
-      {hidden === false && (
+      {!hidden && (
         <Form.Item
           name="confirmPassword"
           rules={[
@@ -170,8 +208,6 @@ const Register = ({ SendgetValue }) => {
               },
             }),
           ]}
-          validateStatus={conPassword ? 'success' : error ? 'error' : ''}
-          help={!conPassword && error ? 'Please confirm your Password!' : ''}
         >
           <Input.Password
             onChange={(e) => {
@@ -196,21 +232,16 @@ const Register = ({ SendgetValue }) => {
             },
           },
         ]}
-        validateStatus={agreeTerms ? 'success' : error ? 'error' : ''}
-        help={!agreeTerms && error ? 'Please agree to the terms of service.' : ''}
       >
         <Checkbox onChange={(e) => setAgreeTerms(e.target.checked)}>
           I agree to all statements in terms of service
         </Checkbox>
       </Form.Item>
 
-      {error && (
-        <div style={{ color: 'red', marginLeft: '25%' }}>
-          Make sure you respect each field's rule!
-        </div>
-      )}
-
       <Form.Item>
+        <div style={{ color: 'red', marginLeft: '25%' }}>
+          {errormsg}
+        </div>
         <button className="login-form-button" htmlType="submit">
           Register
         </button>

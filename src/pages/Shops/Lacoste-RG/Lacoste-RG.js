@@ -16,7 +16,7 @@ function MenShop() {
     }, []);
 
     const fetchData = () => {
-        Axios.get("http://192.168.250.52:7777/get/data")
+        Axios.get("http://192.168.250.52:3000/get/data")
             .then((response) => {
                 setData(response.data);
             })
