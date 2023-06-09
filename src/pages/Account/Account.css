@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200&display=swap");
+
 .login-container {
   width: 50%;
   height: 850px;
@@ -143,4 +145,27 @@ img > #path1 .svg-elem-2{
   font-size: 15px;
   letter-spacing: 1px;
   color: black;
+}
+
+.logoProfilo{
+  width: 20%;
+}
+
+.contenitoreLogoProfilo{
+  padding: 3% 0 3% 0;
+  display: flex;
+  justify-content: center;
+}
+
+.contenitoreInformazioniProfilo{
+  display: grid;
+  row-gap: 2.5px;
+  padding: 0 0 0 5%;
+}
+
+.testoProfilo{
+  font-family: Poppins, sans-serif;   
+  color: black;
+  letter-spacing: 1px;
+  font-size: 15px;
 }

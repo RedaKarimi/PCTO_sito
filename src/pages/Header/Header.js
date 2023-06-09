@@ -1,21 +1,63 @@
 import { useNavigate, useLocation } from "react-router-dom";
-import './Header.css';
+import "./Header.css";
 import { Button, Tooltip, Input, Layout, Menu, ConfigProvider } from "antd";
-import { TagOutlined, HomeOutlined, UserAddOutlined, SearchOutlined, ShoppingCartOutlined, DownOutlined } from "@ant-design/icons";
-import TweenOne from 'rc-tween-one';
-import Cock from "./Cockodrillo.svg"
-import React, { useState } from "react";
+import {
+  TagOutlined,
+  HomeOutlined,
+  UserAddOutlined,
+  SearchOutlined,
+  ShoppingCartOutlined,
+  UserOutlined,
+  DownOutlined,
+} from "@ant-design/icons";
+import TweenOne from "rc-tween-one";
+import Cock from "./Cockodrillo.svg";
+import React, { useState, useContext } from "react";
+import { AuthContext } from "../../authContext";
+import { useEffect } from "react";
+
 const { Header } = Layout;
 var TweenOneGroup = TweenOne.TweenOneGroup;
 const onSearch = (value) => console.log(value);
-function HeaderComp() {
-  const [isOnSearch, setIsOnSearch] = useState(false);
-
+const HeaderComp = ({User}) => {
   let navigate = useNavigate();
   const location = useLocation();
+  
+  const [searchText, setSearchText] = useState("");
+  const authContext = useContext(AuthContext);
 
+  const cachedUser = localStorage.getItem('user');
+  useEffect(() => {
+    if (cachedUser) {
+      const user = JSON.parse(cachedUser);
+      console.log(user.username);
+      console.log(user.password);
+      User=user
+    }
+  }, [])
+
+  const handleLogout = () => {
+    // Perform logout logic
+    authContext.setIsLoggedIn(false);
+    navigate("/");
+  };
+
+  const handleSearch = () => {
+    // Perform search logic
+    console.log("Search for:", searchText);
+  };
+
+  const handleKeyPress = (e) => {
+    if (e.key === "Enter") {
+      handleSearch();
+    }
+  };
+  const [isOnSearch, setIsOnSearch] = useState(false);
+  
+  React.useEffect(() => {
+    console.log(User)
+  }, [User]);
   const [current, setCurrent] = useState('cat1');
-
   let submenu_items = new Map([
     [0, location.pathname === "/men" ?  
       (<Menu.Item onClick={() => { navigate('/'); window.scrollTo({top: 0, left: 0, behavior: 'smooth'});}} key="home" style={{ color: "#13603C", left: "auto", right: 0 }}>
@@ -49,9 +91,9 @@ function HeaderComp() {
 
   return (
     <Header className="header">
-      <img src={Cock} alt="logo" width="6%" onClick={() => { navigate('/'); window.scrollTo({top: 0, left: 0, behavior: 'smooth'});}} style={{cursor:"pointer"}}/>
+      <img src={Cock} alt="logo" width="3%" onClick={() => { navigate('/'); window.scrollTo({top: 0, left: 0, behavior: 'smooth'});}} style={{cursor:"pointer"}}/>
       <img src={require("./scrittaLacoste.png")} alt="logo" width="6%" onClick={() => { navigate('/'); window.scrollTo({top: 0, left: 0, behavior: 'smooth'});}} style={{cursor:"pointer"}}/>
-      <Menu
+      <Menu 
         className="menuStyle"
         style={{ width: "100%", margin: 0, padding: 20, height: 0, display: "flex", justifyContent: "flex-end", alignItems: "center", }}
         disabledOverflow={true} mode="horizontal" breakpoint="lg" collapsedWidth="0" defaultSelectedKeys={"home"} >
@@ -60,7 +102,7 @@ function HeaderComp() {
             {location.pathname === "/account" ?
               <Button size="large" type="text" shape="circle" onClick={() => { navigate('/'); window.scrollTo({top: 0, left: 0, behavior: 'smooth'});}} icon={<HomeOutlined style={{ fontSize: "23px", color: "#13603C" }} />} />
               :
-              <Button size="large" type="text" shape="circle" onClick={() => { navigate('/account'); window.scrollTo({top: 0, left: 0, behavior: 'smooth'});}} icon={<UserAddOutlined style={{ fontSize: "23px", color: "black" }} />} />
+              <Button size="large" type="text" shape="circle" onClick={() => { User.account_id===undefined?navigate('/account'):navigate('/profile'); window.scrollTo({top: 0, left: 0, behavior: 'smooth'});}} icon={<UserOutlined style={{ fontSize: "23px", color: "black" }} />} />
             }
         </Menu.Item>
 
@@ -91,4 +133,5 @@ function HeaderComp() {
       </Menu>
     </Header>
   );
-} export default HeaderComp;
+} 
+export default HeaderComp;

@@ -5,10 +5,21 @@ import Form from '../../Men-shop/insertingToDb.js'
 import React, { useEffect, useState } from "react";
 import Axios from 'axios'
 import "./RG-style.css"
+import Footer from"../../Footer/Footer";
 
 const { Meta } = Card
-const { Content, Footer } = Layout;
-function MenShop() {
+const { Content } = Layout;
+function LRGShop({User}) {
+    const cachedUser = localStorage.getItem('user');
+    useEffect(() => {
+      if (cachedUser) {
+        const user = JSON.parse(cachedUser);
+        console.log(user.username);
+        console.log(user.password);
+        User=user
+      }
+    }, [])
+
     const [data, setData] = useState([]);
 
     useEffect(() => {
@@ -63,7 +74,7 @@ function MenShop() {
                         {items("LOW")}
                     </Row>
                     </section>
-                    <Form />
+                   {/* <Form />*/}
             </Content>
             <Footer>
             </Footer>
@@ -71,4 +82,4 @@ function MenShop() {
     );
 }
 
-export default MenShop;
+export default LRGShop;

@@ -1,0 +1,43 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200&family=Poppins:ital,wght@0,100;0,300;1,100&display=swap");
+
+.descriptionContainer{
+    padding-left: 15%;
+    font-family: Poppins, sans-serif;
+    font-size: 15px;
+    letter-spacing: 1px;
+}
+
+.articoliCol .ant-row{
+    transition: box-shadow 1s;
+    padding-bottom: 20px;
+  }
+  .articoliCol .ant-row:hover{
+    box-shadow: 0 0 11px rgba(33,33,33,.2); 
+  }
+
+.costoTotale{
+    display: flex;
+    justify-content: center;
+    padding: 0 0 5% 0;
+}
+
+.textAcquisto{
+    font-family: Poppins, sans-serif;
+    font-size: 15px;
+    letter-spacing: 1px;
+}
+
+.buttonAcquista{
+    background-color: #b7e4c7;
+    border: none;
+    border-radius: 50px;
+    padding: 2% 5%;
+    transition: .45s ease-in-out;
+    margin-left: 2.5%;
+}
+
+.buttonAcquista:hover{
+    cursor: pointer;
+    background-color: black;
+    color: white;
+}

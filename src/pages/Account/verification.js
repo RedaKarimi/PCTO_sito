@@ -86,7 +86,7 @@ function Verification() {
                         <div class="insideVerification">
                             <img src={Cock} style={{ width: "20%", fill: "red", paddingTop: "3.5%" }} />
                             <p style={{ fontSize: "40px", justifySelf: "center", fontFamily: "Poppins, sans-serif", letterSpacing: "1px", fontWeight: "bolder" }}>Account Verification</p>
-                            <p class="descrizioneVerifica">An email with you verification code has been sent to your email karimi.reda@istitutomontani.edu.it<br /> <br />Copy the code and insert it here to proceed!</p>
+                            <p class="descrizioneVerifica">An email with you verification code has been sent to your email {state.email}<br /> <br />Copy the code and insert it here to proceed!</p>
                             <Form
                                 name="normal_login"
                                 className="pezzoInserimentoEmail"

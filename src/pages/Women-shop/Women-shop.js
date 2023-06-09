@@ -4,10 +4,21 @@ import { DownOutlined } from "@ant-design/icons";
 import React, { useEffect, useState } from "react";
 import Axios from 'axios'
 import "../Men-shop/men-style.css"
+import Footer from "../Footer/Footer";
 
 const { Meta } = Card
-const { Content, Footer } = Layout;
-function MenShop() {
+const { Content } = Layout;
+function WomenShop({User}){
+    const cachedUser = localStorage.getItem('user');
+    useEffect(() => {
+      if (cachedUser) {
+        const user = JSON.parse(cachedUser);
+        console.log(user.username);
+        console.log(user.password);
+        User=user
+      }
+    }, [])
+
     const [data, setData] = useState([]);
 
     useEffect(() => {
@@ -62,10 +73,9 @@ function MenShop() {
                     </Row>
                     </section>
             </Content>
-            <Footer>
-            </Footer>
+            <Footer />
         </Layout>
     );
 }
 
-export default MenShop;
+export default WomenShop;
